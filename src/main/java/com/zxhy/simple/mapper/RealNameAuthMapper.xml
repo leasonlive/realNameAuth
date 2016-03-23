@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<!--   
+    namespace：必须与对应的接口全类名一致  
+    id:必须与对应接口的某个对应的方法名一致  
+      
+ -->  
+ 
+<mapper namespace="com.zxhy.simple.mapper.RealNameAuthMapper">
+	<insert id="save" parameterType="com.zxhy.simple.model.RealNameAuth">
+		insert into real_name_auth(phone, passwd)	values (#{phone},#{passwd})
+	</insert>
+	<update id="updatePasswd" parameterType="com.zxhy.simple.model.RealNameAuth">
+		update real_name_auth set passwd=#{passwd} where phone=#{phone}
+	</update>
+	<update id="updateRealName" parameterType="com.zxhy.simple.model.RealNameAuth">
+		update real_name_auth set id_name=#{idName}, id_code=#{idCode} where phone=#{phone}
+	</update>
+	<update id="updatePhoto" parameterType="com.zxhy.simple.model.RealNameAuth">
+		update real_name_auth set id_photo_url=#{idPhotoUrl} where phone=#{phone}
+	</update>
+	<update id="updateFace" parameterType="com.zxhy.simple.model.RealNameAuth">
+		update real_name_auth set face_url=#{faceUrl} where phone=#{phone}
+	</update>
+	<select id="findByPhone" resultType="com.zxhy.simple.model.RealNameAuth" parameterType="String">
+		select phone,passwd,id_code,id_name,id_photo_url,face_url from real_name_auth where phone=#{phone}
+	</select>
+	<delete id="delete" parameterType="string">
+		delete from real_name_auth where phone=#{phone}
+	</delete>
+</mapper>
