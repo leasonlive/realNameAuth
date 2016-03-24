@@ -41,5 +41,8 @@ public class RealNameAuthServiceImpl implements RealNameAuthService {
 	public void delete(String phone) {
 		this.mapper.delete(phone);
 	}
+	public RealNameAuth findByPhone(String phone) {
+		return this.mapper.findByPhone(phone);
+	}
 	
 }

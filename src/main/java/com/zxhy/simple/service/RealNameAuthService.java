@@ -1,4 +1,7 @@
 package com.zxhy.simple.service;
+
+import com.zxhy.simple.model.RealNameAuth;
+
 /**
  * 实名认证服务接口
  * @author leasonlive
@@ -15,4 +18,5 @@ public interface RealNameAuthService {
 	public void updatePhoto(String phone, String photoUrl);
 	public void updateFace(String phone, String faceUrl);
 	public void delete(String phone);
+	public RealNameAuth findByPhone(String phone);
 }
